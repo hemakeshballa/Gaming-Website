@@ -56,7 +56,7 @@ function draw() {
 
 function step() {
   dir = nextDir;
-  // Wrap around: exiting one edge brings the snake back in on the opposite edge
+  // Wrap around: exiting one edge brings the snake back in on the opposite edge in the same way
   const head = {
     x: (snake[0].x + dir.x + GRID) % GRID,
     y: (snake[0].y + dir.y + GRID) % GRID
