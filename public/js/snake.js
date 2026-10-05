@@ -58,10 +58,7 @@ function step() {
   dir = nextDir;
   const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
 
-  // Wall collision
-  if (head.x < 0 || head.x >= GRID || head.y < 0 || head.y >= GRID) {
-    return endGame();
-  }
+  const head = { x: (snake[0].x + dir.x + GRID) % GRID, y: (snake[0].y + dir.y + GRID) % GRID };
   // Self collision
   if (snake.some(s => s.x === head.x && s.y === head.y)) {
     return endGame();
