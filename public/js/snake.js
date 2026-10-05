@@ -56,14 +56,16 @@ function draw() {
 
 function step() {
   dir = nextDir;
-  const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+  // Wrap around: exiting one edge brings the snake back in on the opposite edge
+  const head = {
+    x: (snake[0].x + dir.x + GRID) % GRID,
+    y: (snake[0].y + dir.y + GRID) % GRID
+  };
 
-  const head = { x: (snake[0].x + dir.x + GRID) % GRID, y: (snake[0].y + dir.y + GRID) % GRID };
   // Self collision
   if (snake.some(s => s.x === head.x && s.y === head.y)) {
     return endGame();
   }
-
   snake.unshift(head);
 
   if (head.x === food.x && head.y === food.y) {
