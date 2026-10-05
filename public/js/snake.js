@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const msg = document.getElementById('msg');
 const bestScoreEl = document.getElementById('bestScore');
 
-const GRID = 20; // 20x20 cells
+const GRID = 50; // 20x20 cells
 const CELL = canvas.width / GRID;
 
 let snake, dir, nextDir, food, score, running, gameOver, bestScore, tickMs, timer;
